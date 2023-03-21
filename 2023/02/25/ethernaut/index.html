@@ -43,7 +43,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2023-02-25T12:40:20.239Z">
-<meta property="article:modified_time" content="2023-02-26T06:31:21.176Z">
+<meta property="article:modified_time" content="2023-03-21T15:11:50.624Z">
 <meta property="article:author" content="mr zhou">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -1742,7 +1742,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1677415678402),
+    lastupdate: new Date(1679415930095),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2566,7 +2566,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="/2023/02/25/ethernaut/73.png" class="lazyload" data-srcset="/2023/02/25/ethernaut/73.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=" "></p>
 <h2 id="8-Vault"><a href="#8-Vault" class="headerlink" title="8.Vault"></a>8.<strong>Vault</strong></h2><p>利用web3查找目标合约函数中存储的password,调用locked函数过关。</p>
 <p><img src="/2023/02/25/ethernaut/9.png" class="lazyload" data-srcset="/2023/02/25/ethernaut/9.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=" "></p>
-<h2 id="9-King"><a href="#9-King" class="headerlink" title="9.King"></a>9.King</h2><h2 id="10-Re-entrancy"><a href="#10-Re-entrancy" class="headerlink" title="10.Re-entrancy"></a>10.<strong>Re-entrancy</strong></h2><h2 id="11-Elevator"><a href="#11-Elevator" class="headerlink" title="11.Elevator"></a>11.<strong>Elevator</strong></h2><h2 id="12-Privacy"><a href="#12-Privacy" class="headerlink" title="12.Privacy"></a>12.<strong>Privacy</strong></h2><h2 id="13-Gatekeeper-One"><a href="#13-Gatekeeper-One" class="headerlink" title="13.Gatekeeper One"></a>13.Gatekeeper One</h2><h2 id="14-Gatekeeper-Two"><a href="#14-Gatekeeper-Two" class="headerlink" title="14.Gatekeeper Two"></a>14.<strong>Gatekeeper Two</strong></h2><h2 id="15-Naught-Coin"><a href="#15-Naught-Coin" class="headerlink" title="15.Naught Coin"></a>15.<strong>Naught Coin</strong></h2><h2 id="16-Preservation"><a href="#16-Preservation" class="headerlink" title="16.Preservation"></a>16.<strong>Preservation</strong></h2><h2 id="17-Recovery"><a href="#17-Recovery" class="headerlink" title="17.Recovery"></a>17.<strong>Recovery</strong></h2><h2 id="18-MagicNumber"><a href="#18-MagicNumber" class="headerlink" title="18.MagicNumber"></a>18.<strong>MagicNumber</strong></h2><h2 id="19-Alien-Codex"><a href="#19-Alien-Codex" class="headerlink" title="19.Alien Codex"></a>19.<strong>Alien Codex</strong></h2><h2 id="20-Denial"><a href="#20-Denial" class="headerlink" title="20.Denial"></a>20.<strong><strong>Denial</strong></strong></h2>
+<h2 id="9-King"><a href="#9-King" class="headerlink" title="9.King"></a>9.King</h2><p>源代码<img src="/2023/02/25/ethernaut/king.png" class="lazyload" data-srcset="/2023/02/25/ethernaut/king.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=" "></p>
+<p>只要向合约发送的币大于原来的msg.sender即可成为新的king，但是如果要防止王位再次被合约中定义的的transfer夺走，合约里就不能再有fallback或者receive函数即可。在remix中操作如下</p>
+<p><img src="/2023/02/25/ethernaut/king4.png" class="lazyload" data-srcset="/2023/02/25/ethernaut/king4.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=" "></p>
+<p>在部署时传入200wei。</p>
+<p><img src="/2023/02/25/ethernaut/king2.png" class="lazyload" data-srcset="/2023/02/25/ethernaut/king2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=" "></p>
+<p>这里再部署攻击合约后传入1ether。显示攻击成功king改变，prize也改变。</p>
+<p>  <img src="/2023/02/25/ethernaut/king3.png" class="lazyload" data-srcset="/2023/02/25/ethernaut/king3.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=" "></p>
+<h2 id="10-Re-entrancy"><a href="#10-Re-entrancy" class="headerlink" title="10.Re-entrancy"></a>10.<strong>Re-entrancy</strong></h2><h2 id="11-Elevator"><a href="#11-Elevator" class="headerlink" title="11.Elevator"></a>11.<strong>Elevator</strong></h2><h2 id="12-Privacy"><a href="#12-Privacy" class="headerlink" title="12.Privacy"></a>12.<strong>Privacy</strong></h2><h2 id="13-Gatekeeper-One"><a href="#13-Gatekeeper-One" class="headerlink" title="13.Gatekeeper One"></a>13.Gatekeeper One</h2><h2 id="14-Gatekeeper-Two"><a href="#14-Gatekeeper-Two" class="headerlink" title="14.Gatekeeper Two"></a>14.<strong>Gatekeeper Two</strong></h2><h2 id="15-Naught-Coin"><a href="#15-Naught-Coin" class="headerlink" title="15.Naught Coin"></a>15.<strong>Naught Coin</strong></h2><h2 id="16-Preservation"><a href="#16-Preservation" class="headerlink" title="16.Preservation"></a>16.<strong>Preservation</strong></h2><h2 id="17-Recovery"><a href="#17-Recovery" class="headerlink" title="17.Recovery"></a>17.<strong>Recovery</strong></h2><h2 id="18-MagicNumber"><a href="#18-MagicNumber" class="headerlink" title="18.MagicNumber"></a>18.<strong>MagicNumber</strong></h2><h2 id="19-Alien-Codex"><a href="#19-Alien-Codex" class="headerlink" title="19.Alien Codex"></a>19.<strong>Alien Codex</strong></h2><h2 id="20-Denial"><a href="#20-Denial" class="headerlink" title="20.Denial"></a>20.<strong><strong>Denial</strong></strong></h2>
   </div>
   
   
@@ -2590,10 +2597,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-02-26T14:31:21+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2023-03-21T23:11:50+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Feb 26, 2023</p>
+    <p>更新于：Mar 21, 2023</p>
   </a>
 </div>
 
@@ -2668,6 +2675,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2023/02/27/solidity/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>solidity</p>
+          <p class='content'></p>
+        </a>
       
       
         <a class='next' href='/2022/11/27/happy/'>
@@ -3306,7 +3318,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"你是帅哥","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"mr zhou","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"这是我的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"你是帅哥"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2023/02/25/ethernaut/"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"你是帅哥","url":"http://example.com/","keywords":null,"description":"这是我的博客","author":{"@type":"Person","name":"mr zhou","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"这是我的博客"},"publisher":{"@type":"Organization","name":"你是帅哥","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"这是我的博客","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2023/02/25/ethernaut/"},"author":{"@type":"Person","name":"mr zhou","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"你是帅哥","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2023/02/25/ethernaut/","wordCount":0,"datePublished":"2023-02-25T12:40:20.239Z","dateModified":"2023-02-26T06:31:21.176Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"你是帅哥","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"mr zhou","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"这是我的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"你是帅哥"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2023/02/25/ethernaut/"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"你是帅哥","url":"http://example.com/","keywords":null,"description":"这是我的博客","author":{"@type":"Person","name":"mr zhou","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"这是我的博客"},"publisher":{"@type":"Organization","name":"你是帅哥","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"这是我的博客","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2023/02/25/ethernaut/"},"author":{"@type":"Person","name":"mr zhou","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"你是帅哥","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2023/02/25/ethernaut/","wordCount":0,"datePublished":"2023-02-25T12:40:20.239Z","dateModified":"2023-03-21T15:11:50.624Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
